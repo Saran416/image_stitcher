@@ -65,3 +65,5 @@ sudo docker run --rm -v $(pwd):/data image-stitcher -i /data/test1/image1.jpg /d
 - `-f, --folder`: Provide the path to a folder containing the images to stitch.
 - `-o, --output`: Provide the output file path where the stitched image will be saved.
 - `-m, --min_matches`: Minimum number of matches required to stitch images. Default is 100.
+
+**Note:** This is a basic tool it does not support any additional features.
