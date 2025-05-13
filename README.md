@@ -66,4 +66,16 @@ sudo docker run --rm -v $(pwd):/data image-stitcher -i /data/test1/image1.jpg /d
 - `-o, --output`: Provide the output file path where the stitched image will be saved.
 - `-m, --min_matches`: Minimum number of matches required to stitch images. Default is 100.
 
+## Approach:
+
+1. **Feature Detection**: Used SIFT to detect keypoints and compute descriptors for each image.
+
+2. **Feature Matching**: Matched features by taking the closest two matches based on L2 distance. Used Lowe's ratio test to filter out false matches.
+
+3. **Homography Estimation**: Used RANSAC to estimate the homography matrix between the images based on the matched keypoints.
+
+4. **Constructing Canvas**: Calculated the size of the canvas by getting the extreme heights and widths based on the homography matrix by transforming the corners of the image.
+
+5. **Image Stitching**: Used the homography matrix to warp and stitch the images together.
+
 **Note:** This is a basic tool it does not support any additional features.
